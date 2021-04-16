@@ -14,7 +14,7 @@ def parentlogin(request):
         password = request.POST['password']
         user = auth.authenticate(email=MailId,password=password)
         if user is not None:
-            auth.login(request, user)
+            auth.index(request, user)
             return redirect("/")
         else:
             messages.info(request,'invalid credentials')
