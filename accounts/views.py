@@ -10,14 +10,14 @@ def index(request):
     return render(request,'index.html')
 def guest(request):
     return redirect('guestchatbot')
-@login_required(login_url="/studentlogin")
+@index_required(index_url="/studentlogin")
 def authchat(request):
     return redirect('studentchatbot')
     
 def logout(request):
     if  'profile' in request.session:
         request.session.flush()
-    return render(request,'login.html')
+    return render(request,'index.html')
 
 def studentlogin(request):
     if request.method== 'POST':
